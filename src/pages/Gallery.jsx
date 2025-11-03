@@ -46,7 +46,6 @@ export default function Gallery() {
       fontFamily="body"
     >
       <VStack spacing={8} align="start">
-        {/* Page Title */}
         <Heading fontSize={{ base: '3xl', md: '4xl' }} color="gold.500" fontFamily="heading">
           Project Gallery
         </Heading>
@@ -125,7 +124,7 @@ export default function Gallery() {
                       {item.alt}
                     </Text>
                     <Text fontSize="sm" color="gold.500" fontStyle="italic">
-                      {item.tags.join(', ')}
+                      {item.tags?.length ? item.tags.join(', ') : 'No tags'}
                     </Text>
                   </Box>
                 </MotionBox>
