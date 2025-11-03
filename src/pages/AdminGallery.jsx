@@ -14,8 +14,8 @@ export default function AdminGallery() {
   const [tags, setTags] = useState('');
   const toast = useToast();
   const [file, setFile] = useState(null);
-const [newAlt, setNewAlt] = useState('');
-const [newTags, setNewTags] = useState('');
+  const [newAlt, setNewAlt] = useState('');
+  const [newTags, setNewTags] = useState('');
 
 
   const fetchGallery = async () => {
@@ -44,27 +44,27 @@ const [newTags, setNewTags] = useState('');
   };
 
   const handleUpload = async () => {
-  if (!file) {
-    toast({ title: 'No file selected', status: 'warning', duration: 3000 });
-    return;
-  }
+    if (!file) {
+      toast({ title: 'No file selected', status: 'warning', duration: 3000 });
+      return;
+    }
 
-  const formData = new FormData();
-  formData.append('media', file);
-  formData.append('alt', newAlt);
-  formData.append('tags', newTags);
+    const formData = new FormData();
+    formData.append('media', file);
+    formData.append('alt', newAlt);
+    formData.append('tags', newTags);
 
-  try {
-    await api.post('/upload', formData);
-    toast({ title: 'Upload successful', status: 'success', duration: 3000 });
-    setFile(null);
-    setNewAlt('');
-    setNewTags('');
-    fetchGallery();
-  } catch {
-    toast({ title: 'Upload failed', status: 'error', duration: 3000 });
-  }
-};
+    try {
+      await api.post('/upload', formData);
+      toast({ title: 'Upload successful', status: 'success', duration: 3000 });
+      setFile(null);
+      setNewAlt('');
+      setNewTags('');
+      fetchGallery();
+    } catch {
+      toast({ title: 'Upload failed', status: 'error', duration: 3000 });
+    }
+  };
 
   const handleUpdate = async () => {
     try {
@@ -83,17 +83,24 @@ const [newTags, setNewTags] = useState('');
     <HStack align="start" spacing={6} px={6} py={12}>
       <MotionBox flex="1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
         <VStack spacing={4} mb={8} align="start">
-  <Text fontSize="xl" fontWeight="bold">Upload New Media</Text>
-  <Input type="file" onChange={e => setFile(e.target.files[0])} />
-  <Input placeholder="Alt text" value={newAlt} onChange={e => setNewAlt(e.target.value)} />
-  <Textarea placeholder="Tags (comma separated)" value={newTags} onChange={e => setNewTags(e.target.value)} />
-  <Button colorScheme="green" onClick={handleUpload}>Upload</Button>
-</VStack>
+          <Text fontSize="xl" fontWeight="bold">Upload New Media</Text>
+          <Input type="file" onChange={e => setFile(e.target.files[0])} />
+          <Input placeholder="Alt text" value={newAlt} onChange={e => setNewAlt(e.target.value)} />
+          <Textarea placeholder="Tags (comma separated)" value={newTags} onChange={e => setNewTags(e.target.value)} />
+          <Button colorScheme="green" onClick={handleUpload}>Upload</Button>
+        </VStack>
 
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
           {media.map((item) => (
             <Box key={item.id} borderWidth="1px" borderRadius="md" overflow="hidden">
-              <Image src={`http://localhost:5000${item.url}`} alt={item.alt} h="200px" w="100%" objectFit="cover" />
+              <Image
+                src={`${process.env.REACT_APP_API_URL}${item.url}`}
+                alt={item.alt}
+                h="200px"
+                w="100%"
+                objectFit="cover"
+              />
+
               <Box p={3}>
                 {editingId === item.id ? (
                   <VStack spacing={2}>

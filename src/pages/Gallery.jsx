@@ -162,15 +162,14 @@ export default function Gallery() {
           >
             <ModalBody p={0}>
               {activeImage && (
-                <Image
-                  src={`${process.env.REACT_APP_API_URL}${activeImage.url}`}
-                  alt={activeImage.alt}
-                  objectFit="contain"
-                  w="100%"
-                  h="auto"
-                  maxH="100%"
-                  borderRadius="xl"
-                />
+               <Image
+  src={`${process.env.REACT_APP_API_URL}${item.url}`}
+  alt={item.alt}
+  h="200px"
+  w="100%"
+  objectFit="cover"
+/>
+
               )}
             </ModalBody>
           </ModalContent>
