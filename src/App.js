@@ -34,6 +34,7 @@ function App() {
         <Route path="/pricing" element={<PricingFaqs />} />
       </Routes>
       <Footer />
+      
     </>
   );
 }

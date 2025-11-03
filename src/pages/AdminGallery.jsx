@@ -101,7 +101,7 @@ export default function AdminGallery() {
                 objectFit="cover"
               />
 
-              <Box p={3}>
+              <Box p={3}>s
                 {editingId === item.id ? (
                   <VStack spacing={2}>
                     <Input value={alt} onChange={e => setAlt(e.target.value)} />
