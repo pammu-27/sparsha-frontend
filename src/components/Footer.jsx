@@ -85,16 +85,15 @@ export default function Footer() {
             ))}
           </Stack>
 
-
           {/* Social Icons */}
           <HStack spacing={4}>
             <Link href="https://facebook.com/yourpage" isExternal>
               <Icon as={FaFacebookF} boxSize={5} _hover={{ color: 'gold.400', textShadow: '0 0 6px gold' }} />
             </Link>
-            <Link href="https://instagram.com/yourprofile" isExternal>
+            <Link href="https://www.instagram.com/sparsha_aluminium_fabrication?igsh=b21qZGg5M2NxdHNs" isExternal>
               <Icon as={FaInstagram} boxSize={5} _hover={{ color: 'gold.400', textShadow: '0 0 6px gold' }} />
             </Link>
-            <Link href="https://wa.me/919876543210" isExternal>
+            <Link href="https://wa.me/919606601658" isExternal>
               <Icon as={FaWhatsapp} boxSize={5} _hover={{ color: 'green.400', textShadow: '0 0 6px green' }} />
             </Link>
           </HStack>
@@ -105,7 +104,7 @@ export default function Footer() {
               Subscribe for updates and offers
             </Text>
             <form
-              action="https://xyz.us21.list-manage.com/subscribe/post?u=abc&id=123"
+              action="http://eepurl.com/jq7l-Q"
               method="POST"
               target="_blank"
               style={{ width: '100%' }}
@@ -144,6 +143,24 @@ export default function Footer() {
           <Text fontSize="xs" textAlign="center">
             © 2025 Sparsha Interiors. All rights reserved.
           </Text>
+
+          {/* Signature */}
+          <Text
+  fontSize="xs"
+  textAlign="center"
+  color="ivory.400"
+  mt={1}
+  transition="all 0.3s ease"
+  _hover={{
+    color: 'gold.300',
+    textShadow: '0 0 6px gold',
+    transform: 'scale(1.02)',
+    cursor: 'default'
+  }}
+>
+  Designed & developed by Pramod — Full-Stack Web Developer
+</Text>
+
         </VStack>
       </MotionBox>
 

@@ -34,7 +34,7 @@ export default function Home() {
         w="100%"
         minH="100vh"
         position="relative"
-        backgroundImage="linear-gradient(to right, rgba(174, 118, 5, 0.59), rgba(255, 255, 255, 0.86)), url('./assets/HeroBG.png')"
+        backgroundImage="linear-gradient(to right, rgba(183, 90, 2, 0.92), rgba(165, 255, 232, 0.62)), url('./assets/HeroBG.png')"
         backgroundSize="cover"
         backgroundPosition="center"
         px={{ base: 4, sm: 6, md: 10, xl: 20 }}
@@ -181,7 +181,7 @@ export default function Home() {
 
       {/* Floating WhatsApp Button */}
       <Link
-        href="https://wa.me/918123456789"
+        href="https://wa.me/919606601658"
         isExternal
         position="fixed"
         bottom="6"
