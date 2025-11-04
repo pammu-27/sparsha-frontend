@@ -1,5 +1,4 @@
-
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Flex, Box } from '@chakra-ui/react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -11,31 +10,34 @@ import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
 import AdminPanel from './pages/AdminPanel';
 import AdminGallery from './pages/AdminGallery';
-import theme from './theme';
 import PricingFaqs from './pages/PricingFaqs';
-
-<ChakraProvider theme={theme}>
-  <App />
-</ChakraProvider>
+import theme from './theme';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/testimonials" element={<Testimonials />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/admin" element={<AdminPanel />} />
-        <Route path="/admin/gallery" element={<AdminGallery />} />
-        <Route path="/pricing" element={<PricingFaqs />} />
-      </Routes>
-      <Footer />
-      
-    </>
+    <ChakraProvider theme={theme}>
+      <Flex direction="column" minH="100vh">
+        <Navbar />
+
+        {/* Main content area that scrolls and expands */}
+        <Box as="main" flex="1" overflowY="auto">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/admin/gallery" element={<AdminGallery />} />
+            <Route path="/pricing" element={<PricingFaqs />} />
+          </Routes>
+        </Box>
+
+        {/* Footer stays at bottom */}
+        <Footer />
+      </Flex>
+    </ChakraProvider>
   );
 }
 
