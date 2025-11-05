@@ -119,7 +119,7 @@ export default function AdminGallery() {
           {media.map((item) => (
             <Box key={item.id} borderWidth="1px" borderRadius="md" overflow="hidden" bg="white">
               <Image
-                src={`${process.env.REACT_APP_API_URL}${item.url}`}
+                src={item.url}
                 alt={item.alt}
                 h="200px"
                 w="100%"
