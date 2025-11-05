@@ -76,7 +76,7 @@ export default function GalleryCarousel({ images = [] }) {
                   boxShadow="md"
                 >
                   <Image
-                    src={`${process.env.REACT_APP_API_URL}${img.url}`}
+                    src={img.url}
                     alt={img.alt}
                     objectFit="cover"
                     w="100%"
@@ -120,7 +120,7 @@ export default function GalleryCarousel({ images = [] }) {
           <ModalBody p={0}>
             {activeImage && (
               <Image
-                src={`${process.env.REACT_APP_API_URL}${activeImage.url}`}
+                src={activeImage.url}
                 alt={activeImage.alt}
                 objectFit="contain"
                 w="100%"
