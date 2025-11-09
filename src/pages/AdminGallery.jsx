@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
-  Box, Text, Image, Input, Textarea, Button, SimpleGrid, VStack, useToast, HStack, Flex
+  Box, Text, Image, Input, Textarea, Button, SimpleGrid,
+  VStack, useToast, HStack, Flex
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { api } from '../lib/api';
@@ -27,11 +28,9 @@ export default function AdminGallery() {
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-useEffect(() => {
-  fetchGallery();
-}, []);
- // ✅ Add fetchGallery
-
+  useEffect(() => {
+    fetchGallery();
+  }, []);
 
   const handleDelete = async (id) => {
     try {
@@ -91,7 +90,7 @@ useEffect(() => {
       minH="100vh"
       pt={10}
       px={{ base: 4, md: 8 }}
-      pb={{ base: 20, md: 28 }} // ensures space for footer
+      pb={{ base: 20, md: 28 }}
       bg="gray.50"
     >
       <MotionBox
