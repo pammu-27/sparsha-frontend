@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react'; 
 import {
   Box, Text, Image, Input, Textarea, Button, SimpleGrid,
   VStack, useToast, HStack, Flex
@@ -18,20 +18,20 @@ export default function AdminGallery() {
   const [newAlt, setNewAlt] = useState('');
   const [newTags, setNewTags] = useState('');
 
-  const fetchGallery = async () => {
-    try {
-      const res = await api.get('/gallery');
-      setMedia(res.data);
-    } catch {
-      toast({ title: 'Failed to fetch gallery', status: 'error', duration: 3000 });
-    }
-  };
+ const fetchGallery = useCallback(async () => {
+  try {
+    const res = await api.get('/gallery');
+    setMedia(res.data);
+  } catch {
+    toast({ title: 'Failed to fetch gallery', status: 'error', duration: 3000 });
+  }
+}, [toast]); // ✅ Memoized with toast as dependency
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
  // eslint-disable-next-line react-hooks/exhaustive-deps
 useEffect(() => {
   fetchGallery();
-}, []);
+}, [fetchGallery]);
 
 
   const handleDelete = async (id) => {
