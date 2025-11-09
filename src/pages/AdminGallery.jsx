@@ -28,9 +28,11 @@ export default function AdminGallery() {
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    fetchGallery();
-  }, []);
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect(() => {
+  fetchGallery();
+}, []);
+
 
   const handleDelete = async (id) => {
     try {
