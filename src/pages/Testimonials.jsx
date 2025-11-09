@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
-  Box, Text, Heading, VStack, SimpleGrid, useToast
+  Box, Text, Heading, SimpleGrid, useToast
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { api } from '../lib/api';
@@ -15,7 +15,7 @@ export default function Testimonials() {
     api.get('/testimonials')
       .then(res => setTestimonials(res.data))
       .catch(() => toast({ title: 'Failed to load testimonials', status: 'error', duration: 3000 }));
-  }, []);
+  }, [toast]); // ✅ Added toast to dependency array
 
   return (
     <MotionBox

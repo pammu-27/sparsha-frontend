@@ -108,7 +108,7 @@ export default function Gallery() {
                   bg="white"
                 >
                   <Image
-                    src={`${process.env.REACT_APP_API_URL}${item.url}`}
+                    src={item.url}
                     alt={item.alt}
                     objectFit="cover"
                     w="100%"
@@ -163,7 +163,7 @@ export default function Gallery() {
             <ModalBody p={0}>
               {activeImage && (
                 <Image
-                  src={`${process.env.REACT_APP_API_URL}${activeImage.url}`}
+                  src={activeImage.url}
                   alt={activeImage.alt}
                   objectFit="contain"
                   w="100%"

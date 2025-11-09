@@ -17,7 +17,7 @@ export default function TestimonialsTeaser() {
     api.get('/testimonials')
       .then(res => setTestimonials(res.data.slice(0, 3)))
       .catch(() => toast({ title: 'Failed to load testimonials', status: 'error', duration: 3000 }));
-  }, []);
+  }, [toast]); // ✅ Added toast to dependency array
 
   return (
     <MotionBox

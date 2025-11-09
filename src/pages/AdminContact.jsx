@@ -16,7 +16,7 @@ export default function AdminContact() {
     api.get('/contact')
       .then(res => setInquiries(res.data))
       .catch(() => toast({ title: 'Failed to load inquiries', status: 'error', duration: 3000 }));
-  }, []);
+  }, [toast]); // ✅ Added toast to dependency array
 
   return (
     <MotionBox
